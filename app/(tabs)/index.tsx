@@ -37,7 +37,7 @@ export default function App() {
             <Link
                 href={{
                     pathname: '/subscriptions/[id]',
-                    params: { id: 'claude ' },
+                    params: { id: 'claude' },
                 }}
             >
                 Claude Max Subscription
