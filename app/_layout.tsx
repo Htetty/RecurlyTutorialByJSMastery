@@ -3,9 +3,11 @@ import { useFonts } from 'expo-font';
 import { SplashScreen, Stack } from 'expo-router';
 import { useEffect } from 'react';
 
+SplashScreen.preventAutoHideAsync();
+
 export default function RootLayout() {
     // this loads the font before any screen renders, keeps splash screen visible
-    const [fontsLoaded] = useFonts({
+    const [fontsLoaded, fontError] = useFonts({
         'sans-regular': require('../assets/fonts/PlusJakartaSans-Regular.ttf'),
         'sans-bold': require('../assets/fonts/PlusJakartaSans-Bold.ttf'),
         'sans-semibold': require('../assets/fonts/PlusJakartaSans-SemiBold.ttf'),
@@ -15,12 +17,12 @@ export default function RootLayout() {
     });
 
     useEffect(() => {
-        if (fontsLoaded) {
+        if (fontsLoaded || fontError) {
             SplashScreen.hideAsync();
         }
-    }, [fontsLoaded]);
+    }, [fontsLoaded, fontError]);
 
-    if (!fontsLoaded) {
+    if (!fontsLoaded && !fontError) {
         return null;
     }
 

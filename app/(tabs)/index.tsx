@@ -33,7 +33,7 @@ export default function App() {
                         <View className="home-header">
                             <View className="home-user">
                                 <Image
-                                    source={images.avater}
+                                    source={images.avatar}
                                     className="home-avatar"
                                 />
                                 <Text className="home-user-name">
@@ -78,7 +78,7 @@ export default function App() {
                             />
                         </View>
 
-                        <ListHeading title="All Subscription" />
+                        <ListHeading title="All Subscriptions" />
                     </>
                 )}
                 data={HOME_SUBSCRIPTIONS}
